@@ -7,6 +7,9 @@ added cached solution
 fixed time out issue
 
 
+dumb bugs:
+forget return statement
+
 """
 
 
@@ -59,4 +62,4 @@ class Solution:
 
 
 if __name__ == "__main__":
-    print(Solution().isMatch("aa", "a*"))
+    print(Solution().isMatch("aaaaaaa", "a*a*a*"))
