@@ -3,23 +3,22 @@
 1:00pm
 disaster
 
+1:07pm
+time limit exceeded
 
+1:15pm
+finished.... with great regret
+
+
+defaultdict takes in a function (0 args)! defaultdict(list) or defaultdict(set) works as well
+deque works, normal pop append, also popleft appendleft
+set().union is NON DESTRUCTIVE remember to set the equal value
+
+When using tuples as keys BE CAREFUL
 """
 
 from typing import List
 from collections import defaultdict, deque
-
-
-def count_letters(given_word):
-    counts = defaultdict(lambda: 0)
-    for c in given_word:
-        counts[c] += 1
-    return counts
-
-
-def get_counted_letters_key(counted_letters):
-    tuples = [tuple(item) for item in sorted(counted_letters.items()) if item[1] > 0]
-    return tuple(tuples)
 
 
 class Solution:
@@ -30,26 +29,17 @@ class Solution:
         if beginWord not in wordList:
             wordList.append(beginWord)
 
-        letters_to_set = defaultdict(
-            lambda: set()
-        )  # {((a, 2), (b,2)): {"babat", "babac"}}
-
+        pattern_to_set = defaultdict(set)
         for word in wordList:
-            counted_letters = count_letters(word)
-            for letter in counted_letters:
-                counted_letters[letter] -= 1
-                letters_to_set[get_counted_letters_key(counted_letters)].add(word)
-                counted_letters[letter] += 1
+            for i in range(len(word)):
+                pattern = word[:i] + "?" + word[i + 1 :]
+                pattern_to_set[pattern].add(word)
 
         def get_neighbors(word):
-            counted_letters = count_letters(word)
             neighbors = set()
-            for letter in counted_letters:
-                counted_letters[letter] -= 1
-                neighbors = neighbors.union(
-                    letters_to_set[get_counted_letters_key(counted_letters)]
-                )
-                counted_letters[letter] += 1
+            for i in range(len(word)):
+                pattern = word[:i] + "?" + word[i + 1 :]
+                neighbors = neighbors.union(pattern_to_set[pattern])
             neighbors.remove(word)
             return list(neighbors)
 
