@@ -39,6 +39,8 @@ class Solution:
         lca, _, _ = lca_helper(root, p, q)
         return lca
 
+
 if __name__ == "__main__":
     # input = TreeNode(1, TreeNode(2, None, None), TreeNode(3, None, None))
     # print(Solution().lowestCommonAncestor(input, 2, 3))
+    pass
