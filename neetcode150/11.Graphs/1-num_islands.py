@@ -20,7 +20,7 @@ class Solution:
                     continue
                 else:
                     # run dfs on land to get all connected land
-                    stack = [(i, j)]
+                    stack = [(i, j)]  # BUG didn't add (i,j) to the seen set
                     while stack:
                         ni, nj = stack.pop()
                         for c in helper_get_children(ni, nj, grid):
