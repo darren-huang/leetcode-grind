@@ -8,6 +8,14 @@ instead of keeping a running track of max
 just keep track of upper bound ->
 
 
+another thing
+i have a preference to start from n = 6 or something...
+often that isn't easier
+just try n = 0 
+
+have a if case for when to decrease size of sliding window
+
+
 """
 from collections import defaultdict
 
