@@ -19,10 +19,10 @@ def validate(cps, k, sorted_qs):
 
     while started_tasks or todo_tasks:
         if not started_tasks:
-            if curr_time < get_next_todo_start_time():  # compare to next start time
+            if curr_time < get_next_todo_start_time():
                 curr_time = get_next_todo_start_time()
 
-        while curr_time >= get_next_todo_start_time():  # task should be started
+        while curr_time >= get_next_todo_start_time():
             # get next task
             n_start_time, n_turnaround = todo_tasks.popleft()
             n_end_time = n_start_time + n_turnaround
@@ -44,16 +44,16 @@ def validate(cps, k, sorted_qs):
 
 
 def solve(n, k, qs):
-    l, r = 1, k
+    left, right = 1, k
     sorted_qs = sorted(qs)
     lowest_valid = k
-    while l <= r:
-        m = (l + r) // 2
-        if validate(m, k, sorted_qs):
-            lowest_valid = min(lowest_valid, m)
-            r = m - 1
+    while left <= right:
+        mid = (left + right) // 2
+        if validate(mid, k, sorted_qs):
+            lowest_valid = min(lowest_valid, mid)
+            right = mid - 1
         else:
-            l = m + 1
+            left = mid + 1
     return lowest_valid
 
 
