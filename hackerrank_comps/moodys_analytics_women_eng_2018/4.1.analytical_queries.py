@@ -1,5 +1,10 @@
 #!/bin/python3
-"""failing many tests"""
+"""failing many tests
+
+basically passes maybe 1 test.
+
+bad greedy idea of placing and item first
+"""
 
 import math
 import os
