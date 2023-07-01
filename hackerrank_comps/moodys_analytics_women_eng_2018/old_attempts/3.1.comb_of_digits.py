@@ -1,5 +1,8 @@
 #!/bin/python3
-"""failing many tests"""
+"""failing many tests
+
+uses combinatorics
+very slow"""
 
 import math
 import os
