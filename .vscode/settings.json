@@ -7,5 +7,9 @@
     "python.linting.flake8Enabled": true,
     "python.linting.enabled": true,
     "python.analysis.typeCheckingMode": "basic",
-    "python.linting.mypyEnabled": false
+    "python.linting.mypyEnabled": false,
+    "flake8.args": [
+        "--ignore=E203, E741",
+        "--max-line-length=88"
+    ]
 }
